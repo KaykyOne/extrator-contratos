@@ -1,0 +1,362 @@
+[
+  {
+    "id": "C01",
+    "estilo": "formal",
+    "texto": "Locador: Edravo de Lumeflor; locatária: Nélida de Vazul. Imóvel: Rua Nimbo de Mel, 41. Aluguel mensal de R$ 1.450,00. Prazo de 24 meses. Início da vigência em 01/03/2031. Multa rescisória de R$ 2.900,00. Reajuste pelo IPCA.",
+    "gold": {
+      "locador": "Edravo de Lumeflor",
+      "locatario": "Nélida de Vazul",
+      "endereco_imovel": "Rua Nimbo de Mel, 41",
+      "valor_aluguel": 1450,
+      "prazo_meses": 24,
+      "data_inicio": "2031-03-01",
+      "valor_multa_rescisoria": 2900,
+      "indice_reajuste": "IPCA"
+    }
+  },
+  {
+    "id": "C02",
+    "estilo": "formal",
+    "texto": "Locadora: Naira de Marfinéu. Locatário: Tomélio de Azulvão. Imóvel situado na Avenida Serra de Vidro, 317. Aluguel de R$ 2.340,70; prazo de 2 anos; vigência em 2032-07-01. Multa por rescisão: R$ 3.000,00; reajuste anual pelo IGP-M.",
+    "gold": {
+      "locador": "Naira de Marfinéu",
+      "locatario": "Tomélio de Azulvão",
+      "endereco_imovel": "Avenida Serra de Vidro, 317",
+      "valor_aluguel": 2340.7,
+      "prazo_meses": 24,
+      "data_inicio": "2032-07-01",
+      "valor_multa_rescisoria": 3000,
+      "indice_reajuste": "IGP-M"
+    }
+  },
+  {
+    "id": "C03",
+    "estilo": "formal",
+    "texto": "São partes deste instrumento Sávio de Miralva, locador, e Cíntala de Nebrisol, locatária. Endereço do imóvel: Travessa da Areia Doce, 15. Aluguel mensal: R$ 810,00. Início: 05/10/2030. Prazo de 6 meses. Reajuste por INPC.",
+    "gold": {
+      "locador": "Sávio de Miralva",
+      "locatario": "Cíntala de Nebrisol",
+      "endereco_imovel": "Travessa da Areia Doce, 15",
+      "valor_aluguel": 810,
+      "prazo_meses": 6,
+      "data_inicio": "2030-10-05",
+      "valor_multa_rescisoria": null,
+      "indice_reajuste": "INPC"
+    }
+  },
+  {
+    "id": "C04",
+    "estilo": "formal",
+    "texto": "Locador: Oresto de Tamarivento; locatária: Dalúna de Pendral. Imóvel: Alameda Gota de Bronze, 52. Assinatura: 22/11/2031. Vigência a partir de 01/12/2031. Caução R$ 3.600,00; aluguel de R$ 1.200,00; multa por atraso de R$ 80,00; prazo de 18 meses.",
+    "gold": {
+      "locador": "Oresto de Tamarivento",
+      "locatario": "Dalúna de Pendral",
+      "endereco_imovel": "Alameda Gota de Bronze, 52",
+      "valor_aluguel": 1200,
+      "prazo_meses": 18,
+      "data_inicio": "2031-12-01",
+      "valor_multa_rescisoria": null,
+      "indice_reajuste": null
+    }
+  },
+  {
+    "id": "C05",
+    "estilo": "informal",
+    "texto": "Cevina de Umbrafim é a proprietária; Ruvano de Solvedra vai morar na Rua Folha de Prata, 18. Ele paga 980 reais todo mês. São 8 meses começando no dia 02/05/2032.",
+    "gold": {
+      "locador": "Cevina de Umbrafim",
+      "locatario": "Ruvano de Solvedra",
+      "endereco_imovel": "Rua Folha de Prata, 18",
+      "valor_aluguel": 980,
+      "prazo_meses": 8,
+      "data_inicio": "2032-05-02",
+      "valor_multa_rescisoria": null,
+      "indice_reajuste": null
+    }
+  },
+  {
+    "id": "C06",
+    "estilo": "informal",
+    "texto": "Proprietário: Mirolo de Salnuvem. Inquilina: Vília de Laranéu. Endereço: Rua Pedra de Farinha, 500. O aluguel é R$ 1150,50 por 10 meses. Começa em 09/01/2030. Se sair antes, paga R$ 575,25. Reajuste pelo IPCA.",
+    "gold": {
+      "locador": "Mirolo de Salnuvem",
+      "locatario": "Vília de Laranéu",
+      "endereco_imovel": "Rua Pedra de Farinha, 500",
+      "valor_aluguel": 1150.5,
+      "prazo_meses": 10,
+      "data_inicio": "2030-01-09",
+      "valor_multa_rescisoria": 575.25,
+      "indice_reajuste": "IPCA"
+    }
+  },
+  {
+    "id": "C07",
+    "estilo": "informal",
+    "texto": "Locadora: Dália de Trisnuvem. Locatário: Tevino de Miracobre. Imóvel: Avenida Estrela Rasa, 73. Aluguel de R$ 700,00. O trato vale por um semestre; a chave entra no dia primeiro de agosto de 2032, quando a locação começa.",
+    "gold": {
+      "locador": "Dália de Trisnuvem",
+      "locatario": "Tevino de Miracobre",
+      "endereco_imovel": "Avenida Estrela Rasa, 73",
+      "valor_aluguel": 700,
+      "prazo_meses": 6,
+      "data_inicio": "2032-08-01",
+      "valor_multa_rescisoria": null,
+      "indice_reajuste": null
+    }
+  },
+  {
+    "id": "C08",
+    "estilo": "informal",
+    "texto": "A dona, Norélia de Ventaclara, aluga a casa para Belivo de Pedracinza. Imóvel: Estrada do Sol de Inverno, 950. Pagamento mensal de R$ 680,00; prazo de 3 meses. Se rescindir antes do prazo, fica explicitamente dispensada qualquer multa.",
+    "gold": {
+      "locador": "Norélia de Ventaclara",
+      "locatario": "Belivo de Pedracinza",
+      "endereco_imovel": "Estrada do Sol de Inverno, 950",
+      "valor_aluguel": 680,
+      "prazo_meses": 3,
+      "data_inicio": null,
+      "valor_multa_rescisoria": 0,
+      "indice_reajuste": null
+    }
+  },
+  {
+    "id": "C09",
+    "estilo": "whatsapp",
+    "texto": "[08:41] Lúnio de Rosavento: sou o dono e vou alugar o apê pra você, Tévia de Lagoazul. É na Rua Amanhecer de Gelo, 28.\n[08:42] Lúnio: fechamos 1350 reais/mês por 12 meses?\n[08:43] Tévia: fechado, começa em 04/04/2033 😊",
+    "gold": {
+      "locador": "Lúnio de Rosavento",
+      "locatario": "Tévia de Lagoazul",
+      "endereco_imovel": "Rua Amanhecer de Gelo, 28",
+      "valor_aluguel": 1350,
+      "prazo_meses": 12,
+      "data_inicio": "2033-04-04",
+      "valor_multa_rescisoria": null,
+      "indice_reajuste": null
+    }
+  },
+  {
+    "id": "C10",
+    "estilo": "whatsapp",
+    "texto": "✅ locador = Clévio de Azulmusgo\n✅ inquilina = Rúbia de Névoamar\nimóvel: Praça dos Relógios de Areia, 66\naluguel: R$ 925,00\nprazo: 9 meses\ninício: 17/02/2031\nreajuste: IPCA",
+    "gold": {
+      "locador": "Clévio de Azulmusgo",
+      "locatario": "Rúbia de Névoamar",
+      "endereco_imovel": "Praça dos Relógios de Areia, 66",
+      "valor_aluguel": 925,
+      "prazo_meses": 9,
+      "data_inicio": "2031-02-17",
+      "valor_multa_rescisoria": null,
+      "indice_reajuste": "IPCA"
+    }
+  },
+  {
+    "id": "C11",
+    "estilo": "whatsapp",
+    "texto": "Olá, Lévina de Licorvento! Aqui é o proprietário, Orvélio de Miranil. Você será a inquilina. Pra confirmar: Av. Miragem de Cera, 107, R$ 1.800,00 de aluguel por mês. Se romper antes, são dois aluguéis de multa.",
+    "gold": {
+      "locador": "Orvélio de Miranil",
+      "locatario": "Lévina de Licorvento",
+      "endereco_imovel": "Av. Miragem de Cera, 107",
+      "valor_aluguel": 1800,
+      "prazo_meses": null,
+      "data_inicio": null,
+      "valor_multa_rescisoria": 3600,
+      "indice_reajuste": null
+    }
+  },
+  {
+    "id": "C12",
+    "estilo": "whatsapp",
+    "texto": "chat do aluguel\nlocadora: Numi de Arealuz\nlocatário: Vitorno de Virabruma\nimóvel: Rua Pingo de Sal, 81\naluguel R$ 660,00\nprazo: 4 meses\ncomeça em 12/06/2034\nna quebra antes do prazo: multa de R$ 200,00.",
+    "gold": {
+      "locador": "Numi de Arealuz",
+      "locatario": "Vitorno de Virabruma",
+      "endereco_imovel": "Rua Pingo de Sal, 81",
+      "valor_aluguel": 660,
+      "prazo_meses": 4,
+      "data_inicio": "2034-06-12",
+      "valor_multa_rescisoria": 200,
+      "indice_reajuste": null
+    }
+  },
+  {
+    "id": "C13",
+    "estilo": "bagunçado",
+    "texto": "RASCUNHO ### aluguel: R$ 2.050,00; INÍCIO=06/08/2030\nLOCATÁRIO - Arvelo de Ventanil\nLOCADOR - Bêlina de Noiteluz\nimóvel=Rua Sopro de Âmbar, 4\nprazo=15 meses\nMULTA RESCISÓRIA=R$ 1.025,00\nreajuste=IGP-M",
+    "gold": {
+      "locador": "Bêlina de Noiteluz",
+      "locatario": "Arvelo de Ventanil",
+      "endereco_imovel": "Rua Sopro de Âmbar, 4",
+      "valor_aluguel": 2050,
+      "prazo_meses": 15,
+      "data_inicio": "2030-08-06",
+      "valor_multa_rescisoria": 1025,
+      "indice_reajuste": "IGP-M"
+    }
+  },
+  {
+    "id": "C14",
+    "estilo": "bagunçado",
+    "texto": "cópia\nprazo de 11 meses / assinatura 2034-03-03\nlocatária: Nelusa de Ventorrio\nendereço: Alameda Cálamo de Nuvem, 16\nlocador: Mávio de Fulgorazul\nmulta por rescisão antecipada de R$ 500,00\naluguel: R$ 990,00\nINÍCIO 2034-05-19",
+    "gold": {
+      "locador": "Mávio de Fulgorazul",
+      "locatario": "Nelusa de Ventorrio",
+      "endereco_imovel": "Alameda Cálamo de Nuvem, 16",
+      "valor_aluguel": 990,
+      "prazo_meses": 11,
+      "data_inicio": "2034-05-19",
+      "valor_multa_rescisoria": 500,
+      "indice_reajuste": null
+    }
+  },
+  {
+    "id": "C15",
+    "estilo": "bagunçado",
+    "texto": "rótulos trocados no papel: a mora é R$ 70,00; o sinal é R$ 2.000,00. corrigido: aluguel R$ 1.000,00; imóvel: Rua Espuma de Sol, 24. Locador: Ilauro de Verdebreu; locatário: Seravo de Dourasombra. Prazo: 20 meses. Reajuste anual pelo IPC-FIPE.",
+    "gold": {
+      "locador": "Ilauro de Verdebreu",
+      "locatario": "Seravo de Dourasombra",
+      "endereco_imovel": "Rua Espuma de Sol, 24",
+      "valor_aluguel": 1000,
+      "prazo_meses": 20,
+      "data_inicio": null,
+      "valor_multa_rescisoria": null,
+      "indice_reajuste": "IPC-FIPE"
+    }
+  },
+  {
+    "id": "C16",
+    "estilo": "bagunçado",
+    "texto": "Imóvel: Travessa Eco de Quartzo, 85\nLOCADORA: Ylina de Brumaluz\nR$ 1.325,00 por mês!!!\nInquilino: Ávoro de Maravento\nprazo 14 meses; vigência 13/04/2032. Multa rescisória R$ 300,00.",
+    "gold": {
+      "locador": "Ylina de Brumaluz",
+      "locatario": "Ávoro de Maravento",
+      "endereco_imovel": "Travessa Eco de Quartzo, 85",
+      "valor_aluguel": 1325,
+      "prazo_meses": 14,
+      "data_inicio": "2032-04-13",
+      "valor_multa_rescisoria": 300,
+      "indice_reajuste": null
+    }
+  },
+  {
+    "id": "C17",
+    "estilo": "ausências",
+    "texto": "Locador: Brevânio de Azulturvo. Locatária: Ninela de Pontalume. O aluguel mensal de R$ 870,00 será pago dia 5. Assinatura em 08/04/2030.",
+    "gold": {
+      "locador": "Brevânio de Azulturvo",
+      "locatario": "Ninela de Pontalume",
+      "endereco_imovel": null,
+      "valor_aluguel": 870,
+      "prazo_meses": null,
+      "data_inicio": null,
+      "valor_multa_rescisoria": null,
+      "indice_reajuste": null
+    }
+  },
+  {
+    "id": "C18",
+    "estilo": "ausências",
+    "texto": "Locatário: Lúvero de Selvanil. Endereço: Rua Flor de Chumbo, 53. Prazo de 3 meses. As partes vão negociar o valor e o início posteriormente.",
+    "gold": {
+      "locador": null,
+      "locatario": "Lúvero de Selvanil",
+      "endereco_imovel": "Rua Flor de Chumbo, 53",
+      "valor_aluguel": null,
+      "prazo_meses": 3,
+      "data_inicio": null,
+      "valor_multa_rescisoria": null,
+      "indice_reajuste": null
+    }
+  },
+  {
+    "id": "C19",
+    "estilo": "ausências",
+    "texto": "Imóvel: Alameda Soprafolha, 11. O aluguel será de R$ 760,00. A rescisão antecipada será isenta de multa. Reajuste pelo INPC.",
+    "gold": {
+      "locador": null,
+      "locatario": null,
+      "endereco_imovel": "Alameda Soprafolha, 11",
+      "valor_aluguel": 760,
+      "prazo_meses": null,
+      "data_inicio": null,
+      "valor_multa_rescisoria": 0,
+      "indice_reajuste": "INPC"
+    }
+  },
+  {
+    "id": "C20",
+    "estilo": "ausências",
+    "texto": "Locadora: Lóvina de Zafiréu. O contrato começa em 14/06/2035. O prazo é indeterminado. Índice, valores, endereço e ocupante ainda serão definidos.",
+    "gold": {
+      "locador": "Lóvina de Zafiréu",
+      "locatario": null,
+      "endereco_imovel": null,
+      "valor_aluguel": null,
+      "prazo_meses": null,
+      "data_inicio": "2035-06-14",
+      "valor_multa_rescisoria": null,
+      "indice_reajuste": null
+    }
+  },
+  {
+    "id": "C21",
+    "estilo": "por extenso",
+    "texto": "Locador: Venílio de Pedramar. Locatária: Mérula de Cedronévoa. Imóvel: Rua Abóbada de Algodão, 29. Aluguel de dois mil e quinze reais e cinquenta centavos pelo prazo de quinze meses. Início: 01/11/2031. Reajuste pelo IPCA.",
+    "gold": {
+      "locador": "Venílio de Pedramar",
+      "locatario": "Mérula de Cedronévoa",
+      "endereco_imovel": "Rua Abóbada de Algodão, 29",
+      "valor_aluguel": 2015.5,
+      "prazo_meses": 15,
+      "data_inicio": "2031-11-01",
+      "valor_multa_rescisoria": null,
+      "indice_reajuste": "IPCA"
+    }
+  },
+  {
+    "id": "C22",
+    "estilo": "por extenso",
+    "texto": "Proprietária: Célora de Açucenil. Locatário: Deruno de Nuvampoa. Endereço: Rua Agulha de Orvalho, 81. Aluguel mensal de setecentos e oitenta reais por dois anos. A vigência começa em dez de janeiro de 2032. Multa rescisória de mil e quinhentos reais.",
+    "gold": {
+      "locador": "Célora de Açucenil",
+      "locatario": "Deruno de Nuvampoa",
+      "endereco_imovel": "Rua Agulha de Orvalho, 81",
+      "valor_aluguel": 780,
+      "prazo_meses": 24,
+      "data_inicio": "2032-01-10",
+      "valor_multa_rescisoria": 1500,
+      "indice_reajuste": null
+    }
+  },
+  {
+    "id": "C23",
+    "estilo": "por extenso",
+    "texto": "Aluguel de novecentos e noventa e nove reais. Prazo de doze meses. Locador: Drávio de Nuvemansa; locatária: Iolusta de Jasmimneve. Imóvel: Praça Lua de Papel, 12. Multa por rescisão de um aluguel. Reajuste pelo IGP-M.",
+    "gold": {
+      "locador": "Drávio de Nuvemansa",
+      "locatario": "Iolusta de Jasmimneve",
+      "endereco_imovel": "Praça Lua de Papel, 12",
+      "valor_aluguel": 999,
+      "prazo_meses": 12,
+      "data_inicio": null,
+      "valor_multa_rescisoria": 999,
+      "indice_reajuste": "IGP-M"
+    }
+  },
+  {
+    "id": "C24",
+    "estilo": "por extenso",
+    "texto": "Locadora: Sílvora de Luarbreu. Inquilino: Davélio de Trispedra. Imóvel: Estrada do Vento Doce, 7. O aluguel mensal é de mil e cem reais. Por dezoito meses desde 22/03/2033. Rescisão antecipada sem multa.",
+    "gold": {
+      "locador": "Sílvora de Luarbreu",
+      "locatario": "Davélio de Trispedra",
+      "endereco_imovel": "Estrada do Vento Doce, 7",
+      "valor_aluguel": 1100,
+      "prazo_meses": 18,
+      "data_inicio": "2033-03-22",
+      "valor_multa_rescisoria": 0,
+      "indice_reajuste": null
+    }
+  }
+]

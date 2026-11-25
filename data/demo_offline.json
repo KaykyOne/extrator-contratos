@@ -1,0 +1,13 @@
+{
+  "texto": "Locador: Eldavo de Solnascente. Locatária: Fíria de Nuvafria. Imóvel: Rua Flauta de Névoa, 62. Aluguel de R$ 1.275,00. Prazo de 8 meses. Início em 15/08/2035.",
+  "saida": {
+    "locador": "Eldavo de Solnascente",
+    "locatario": "Fíria de Nuvafria",
+    "endereco_imovel": "Rua Flauta de Névoa, 62",
+    "valor_aluguel": 1275.0,
+    "prazo_meses": 8,
+    "data_inicio": "2035-08-15",
+    "valor_multa_rescisoria": null,
+    "indice_reajuste": null
+  }
+}

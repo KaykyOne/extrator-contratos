@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if aba == "resultados" %}Resultados{% else %}Extração{% endif %} · Extrator de contratos</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='painel.css') }}">
+  <script defer src="{{ url_for('static', filename='painel.js') }}"></script>
+</head>
+<body>
+  <header class="topo">
+    <div class="largura topo-conteudo">
+      <a class="marca" href="{{ url_for('index') }}"><span class="marca-icone" aria-hidden="true">{ }</span> Extrator de contratos</a>
+      <nav aria-label="Navegação principal">
+        <a href="{{ url_for('index') }}"{% if aba != "resultados" %} aria-current="page"{% endif %}>Extrair</a>
+        <a href="{{ url_for('resultados') }}"{% if aba == "resultados" %} aria-current="page"{% endif %}>Resultados</a>
+      </nav>
+    </div>
+  </header>
+  <main class="largura">
+    {% if aba == "resultados" %}
+      {% include "resultados.html" %}
+    {% else %}
+      <div class="cabecalho">
+        <div>
+          <h1>Extração de contratos</h1>
+          <p>Veja como um contrato fictício de aluguel vira oito campos estruturados.</p>
+        </div>
+        <a class="botao secundario" href="{{ url_for('resultados') }}">Ver resultados da avaliação <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="bancada">
+        <form class="painel formulario" method="post" action="{{ url_for('extrair') }}">
+          <h2>Contrato</h2>
+          <label class="sr-only" for="texto">Texto do contrato</label>
+          <textarea id="texto" name="texto" maxlength="{{ limite }}" placeholder="Cole o texto do contrato aqui…" required>{{ texto }}</textarea>
+          <div class="acoes exemplos">
+            <button type="button" class="botao texto" id="exemplo" data-exemplo="{{ demo }}">Exemplo offline</button>
+            <button type="button" class="botao texto" id="exemplo-dataset" data-exemplo="{{ exemplo.texto }}">Contrato {{ exemplo.id }} da avaliação</button>
+          </div>
+          <div class="opcoes">
+            <div>
+              <label for="estrategia">Estratégia</label>
+              <select id="estrategia" name="estrategia">
+                {% for chave, rotulo in rotulos.items() %}
+                  <option value="{{ chave }}"{% if chave == estrategia %} selected{% endif %}>{{ rotulo }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <label class="offline"><input id="offline" name="offline" type="checkbox"{% if offline %} checked{% endif %}> Modo offline (cache)</label>
+          </div>
+          <button class="botao primario" type="submit" id="botao-extrair">Extrair campos <span aria-hidden="true">→</span></button>
+          {% if erro %}<p class="aviso erro" role="alert">{{ erro }}</p>{% endif %}
+        </form>
+
+        <section class="painel" aria-labelledby="titulo-resultado">
+          <div class="titulo-painel">
+            <h2 id="titulo-resultado">Dados extraídos</h2>
+            {% if resultado %}
+              <span class="tempo">{{ resultado.tempo_ms|duracao }}</span>
+            {% endif %}
+          </div>
+          {% if resultado %}
+            {% set origens = {"baseline": "spaCy + regex", "api": "API DeepSeek", "cache": "Cache da API", "demo": "Exemplo ilustrativo"} %}
+            {% set presentes = resultado.contrato|length - resultado.campos_nulos|length %}
+            <p class="subtitulo">{{ origens[resultado.origem] }} · {{ presentes }} de {{ campos|length }} campos preenchidos</p>
+            <dl class="campos">
+              {% for chave, rotulo in campos.items() %}
+                {% set valor = resultado.contrato[chave] %}
+                <div{% if valor is none %} class="ausente"{% endif %}>
+                  <dt>{{ rotulo }}</dt>
+                  <dd>{% if valor is none %}<span class="nulo">Ausente</span>{% else %}{{ valor|valor_legivel(chave) }}{% endif %}</dd>
+                </div>
+              {% endfor %}
+            </dl>
+            <details class="json">
+              <summary>Ver JSON formatado</summary>
+              <button type="button" id="copiar-json" class="botao secundario">Copiar JSON</button>
+              <pre><code id="dados-json">{
+{% for chave, valor in resultado.contrato.items() %}  {{ chave|tojson }}: {% if valor is none %}<span class="nulo-json">null</span>{% else %}{{ valor|tojson }}{% endif %}{% if not loop.last %},{% endif %}
+{% endfor %}}</code></pre>
+            </details>
+          {% else %}
+            <div class="saida-vazia">
+              <span class="saida-icone" aria-hidden="true">{ }</span>
+              <p>Os campos aparecem aqui depois da extração.</p>
+            </div>
+          {% endif %}
+        </section>
+      </div>
+    {% endif %}
+  </main>
+</body>
+</html>

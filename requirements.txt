@@ -1,0 +1,5 @@
+Flask>=3.0,<4
+openai>=1.40,<3
+pydantic>=2.10,<3
+python-dotenv>=1,<2
+spacy>=3.8.11,<3.9

@@ -1,0 +1,114 @@
+<div class="cabecalho">
+  <div>
+    <h1>Avaliação das estratégias</h1>
+    <p>{{ total_contratos }} contratos fictícios · {{ campos|length }} campos por contrato · {{ rotulos|length }} estratégias</p>
+  </div>
+  <a class="botao secundario" href="{{ url_for('index') }}">Testar um contrato <span aria-hidden="true">↗</span></a>
+</div>
+
+<details class="painel executar"{% if not metricas %} open{% endif %}>
+  <summary><span>Rodar avaliação</span>{% if atualizado %}<small>Último relatório em {{ atualizado }}</small>{% endif %}</summary>
+  <div class="acoes" id="controles-avaliacao" data-endpoint="{{ url_for('avaliacao') }}">
+    <button type="button" class="botao primario" data-avaliar="cache">Avaliar com cache</button>
+    <button type="button" class="botao secundario" data-avaliar="api"{% if not api_configurada %} disabled{% endif %}>Avaliar via API</button>
+  </div>
+  <p class="subtitulo">{% if api_configurada %}A avaliação via API faz {{ total_contratos * (rotulos|length - 1) }} chamadas iniciais ao DeepSeek. O cache reaproveita as respostas já gravadas.{% else %}Configure a chave do DeepSeek para avaliar via API. O modo cache usa as respostas já gravadas.{% endif %} Uma nova avaliação atualiza o relatório.</p>
+</details>
+<div id="andamento" class="painel andamento" hidden>
+  <progress id="progresso" value="0" max="1" aria-label="Progresso da avaliação"></progress>
+  <p id="status-avaliacao" role="status"></p>
+</div>
+
+{% if metricas %}
+  <div class="metricas-grade">
+    <section class="painel acuracia" aria-labelledby="titulo-acuracia">
+      <h2 id="titulo-acuracia">Acurácia geral</h2>
+      <p class="subtitulo">Percentual de campos que coincidiram com o gabarito</p>
+      <ul class="barras">
+        {% for linha in metricas %}
+          <li class="{% if linha.estrategia == 'baseline' %}baseline{% endif %}">
+            <div class="barra-rotulo"><span>{{ 'Baseline' if linha.estrategia == 'baseline' else rotulos.get(linha.estrategia, linha.estrategia) }}</span>
+              <strong>{{ linha.acuracia_geral|percentual }}</strong></div>
+            <div class="trilho" aria-hidden="true"><div class="barra" style="width: {{ (linha.acuracia_geral or 0) * 100 }}%"></div></div>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="painel" aria-labelledby="titulo-execucao">
+      <h2 id="titulo-execucao">Tempo e cobertura</h2>
+      <p class="subtitulo">Tempo médio por extração concluída</p>
+      <div class="rolagem">
+        <table class="tempos">
+          <thead><tr><th scope="col">Estratégia</th><th scope="col">Tempo</th><th scope="col">Contratos</th><th scope="col">JSON inválido</th></tr></thead>
+          <tbody>
+            {% for linha in metricas %}
+              {% set origens = {"local": "Local", "API": "API DeepSeek", "cache": "Cache da API"} %}
+              <tr><th scope="row">{{ 'Baseline' if linha.estrategia == 'baseline' else rotulos.get(linha.estrategia, linha.estrategia) }}<small>{{ origens.get(linha.origem, linha.origem) }}</small></th>
+                <td>{{ linha.tempo_medio_ms|duracao }}</td><td>{{ linha.avaliados }}/{{ linha.total }}</td><td>{{ linha.taxa_json_invalido|percentual }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% if metricas|selectattr("origem", "equalto", "cache")|list %}
+        <p class="subtitulo nota">No cache, o tempo é de leitura. A taxa de JSON inválido vem das chamadas originais.</p>
+      {% endif %}
+    </section>
+  </div>
+
+  <section class="painel matriz" aria-labelledby="titulo-campos">
+    <h2 id="titulo-campos">Acurácia por campo</h2>
+    <p class="subtitulo">Compare onde cada estratégia acertou ou deixou lacunas.</p>
+    <div class="rolagem" tabindex="0" role="region" aria-label="Tabela de acurácia por campo">
+      <table class="mapa">
+        <thead><tr><th scope="col">Campo</th>
+          {% for linha in metricas %}<th scope="col">{{ 'Baseline' if linha.estrategia == 'baseline' else rotulos.get(linha.estrategia, linha.estrategia) }}</th>{% endfor %}
+        </tr></thead>
+        <tbody>
+          {% for campo, rotulo in campos.items() %}
+            <tr><th scope="row">{{ rotulo }}</th>
+              {% for linha in metricas %}
+                {% set valor = linha[campo] %}
+                <td data-faixa="{{ 'sem-dados' if valor is none else 'total' if valor == 1 else 'alto' if valor >= 0.8 else 'baixo' }}">{{ valor|percentual }}</td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="painel divergencias" aria-labelledby="titulo-erros">
+    <h2 id="titulo-erros">Exemplos de erro</h2>
+    {% if exemplos %}
+      <p class="subtitulo">Abra um contrato para comparar o valor esperado com o extraído.</p>
+      {% for exemplo in exemplos %}
+        <details class="divergencia"{% if loop.first %} open{% endif %}>
+          <summary><span>{{ exemplo.titulo }} · {{ 'Baseline' if exemplo.estrategia == 'baseline' else rotulos.get(exemplo.estrategia, exemplo.estrategia) }}</span><small>{{ exemplo.diferencas|length }} divergência{% if exemplo.diferencas|length != 1 %}s{% endif %}</small></summary>
+          <blockquote>{{ exemplo.trecho }}</blockquote>
+          <div class="rolagem">
+            <table>
+              <thead><tr><th scope="col">Campo</th><th scope="col">Esperado</th><th scope="col">Extraído</th></tr></thead>
+              <tbody>
+                {% for diferenca in exemplo.diferencas %}
+                  <tr><th scope="row">{{ diferenca.campo }}</th><td><code>{{ diferenca.esperado }}</code></td><td><code class="valor-erro">{{ diferenca.extraido }}</code></td></tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <a class="botao secundario testar-exemplo" href="{{ url_for('index', contrato=exemplo.id) }}">Testar este contrato</a>
+        </details>
+      {% endfor %}
+    {% else %}
+      <p class="subtitulo">Nenhuma divergência registrada nas saídas validadas.</p>
+    {% endif %}
+    {% if falhas %}
+      <h3>Falhas de execução</h3>
+      <ul class="falhas">
+        {% for falha in falhas %}<li><strong>{{ rotulos.get(falha.estrategia, falha.estrategia) }}</strong> · {{ falha.texto }}</li>{% endfor %}
+      </ul>
+    {% endif %}
+  </section>
+{% else %}
+  <section class="painel vazio"><h2>Nenhuma avaliação disponível</h2><p>Rode a avaliação acima para gerar a comparação.</p></section>
+{% endif %}
